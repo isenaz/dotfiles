@@ -3,7 +3,8 @@
 ## 初期セットアップ
 
 1. いつも使うサービスのインストール
-  - Google日本語入力
-  - Karabiner-Elements
-  - Raycast
-  - Arc Browser
+   - Google 日本語入力
+   - Karabiner-Elements
+   - Raycast
+   - Alacritty
+   - Arc Browser
