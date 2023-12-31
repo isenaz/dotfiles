@@ -1,3 +1,3 @@
 #!/bin/sh
-ln -sf ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-cp -r ~/.dotfiles/alacritty/themes ~/.config/alacritty
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+ln -sf ~/.dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
