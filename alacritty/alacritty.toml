@@ -5,12 +5,16 @@ import = [
 
 [keyboard]
 bindings = [
+  # cmd+enterでフルスクリーンモードに入る
   { key = "Return", mods = "Command", action = "ToggleSimpleFullscreen" },
+  # MacOSのバックスラッシュキー押下が¥キー入力判定されてしまうので、変換する
+  { key = "¥", chars = "\\"},
 ]
 
 [window]
 opacity = 1
 startup_mode = "Maximized"
+decorations = "None"
 
 [font]
 size=14
