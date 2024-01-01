@@ -79,4 +79,5 @@ runtime macros/matchit.vim
 "--------------------
 " plugins
 "--------------------
+source ~/.dotfiles/vim/plugins/nerdcommenter.vim
 source ~/.dotfiles/vim/plugins/others.vim
