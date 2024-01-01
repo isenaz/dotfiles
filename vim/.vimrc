@@ -94,4 +94,39 @@ call plug#begin('~/.vim/plugged')
   " ----------
   Plug 'tpope/vim-fugitive' 
 
+  " ----------
+  " fern and related plugins - file explorer in vim
+  " ----------
+  Plug 'lambdalisue/fern.vim'
+
+  " make vim's default file explorer to fern
+  Plug 'lambdalisue/fern-hijack.vim'
+  " <Leader>e でファイルエクスプローラーを表示し、開いているファイルまでのツリーを展開する
+  nmap <Leader>e :Fern . -reveal=%<CR>
+  " 隠しファイルを表示する
+  let g:fern#default_hidden=1
+
+  " preview files in fern
+  Plug 'yuki-yano/fern-preview.vim'
+  " 各種ショートカットキーの設定
+  function! s:fern_settings() abort
+    nmap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+    nmap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+    nmap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+    nmap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+    nmap <silent> <buffer> S <Plug>(fern-action-open:below)
+  endfunction
+  augroup fern-settings
+    autocmd!
+    autocmd FileType fern call s:fern_settings()
+  augroup END
+
+  " show git status in files in fern 
+  Plug 'lambdalisue/fern-git-status.vim'
+
+  " show file type icons in fern
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  Plug 'lambdalisue/nerdfont.vim'
+  let g:fern#renderer = 'nerdfont'
+
 call plug#end()
