@@ -66,6 +66,7 @@ let &t_EI = "\e[2 q"
 " (or else vim will hang up)
 set re=0
 
+" vim上でyankした内容をOSのクリップボードにコピーする
 set clipboard=unnamed
 
 " :source $VIMRUNTIMEmacros/matchit.vim
