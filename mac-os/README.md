@@ -8,6 +8,7 @@
    - Raycast
    - Alacritty
    - Hemmerspoon
+   - Homebrew
    - Arc Browser
 
 2. キーボードショートカットのカスタマイズ
