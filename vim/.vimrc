@@ -1,4 +1,6 @@
-"----- settings for native vim -----
+"--------------------
+" settings for native vim
+"--------------------
 set encoding=utf8
 set fenc=utf-8
 " colorscheme
@@ -74,3 +76,7 @@ set nocompatible
 filetype plugin on
 runtime macros/matchit.vim
 
+"--------------------
+" plugins
+"--------------------
+source ~/.dotfiles/vim/plugins/others.vim
