@@ -79,5 +79,19 @@ runtime macros/matchit.vim
 "--------------------
 " plugins
 "--------------------
-source ~/.dotfiles/vim/plugins/nerdcommenter.vim
-source ~/.dotfiles/vim/plugins/others.vim
+call plug#begin('~/.vim/plugged')
+
+  " ----------
+  " nerdcommenter - set comments in file
+  " ----------
+  Plug 'preservim/nerdcommenter'
+  let g:NERDSpaceDelims = 1
+  let g:NERDDefaultAlign = 'left'
+  let g:NERDCommentEmptyLines = 1
+
+  " ----------
+  " vim-fugitive - use git functions in vim
+  " ----------
+  Plug 'tpope/vim-fugitive' 
+
+call plug#end()
