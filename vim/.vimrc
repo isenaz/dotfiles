@@ -129,6 +129,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'lambdalisue/nerdfont.vim'
   let g:fern#renderer = 'nerdfont'
 
+  " ----------
+  " auto-pairs - auto input other pair of brackets
+  " ----------
+  Plug 'jiangmiao/auto-pairs'
 
   " ----------
   " fzf and related plugins - fuzzy search
