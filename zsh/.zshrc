@@ -24,7 +24,7 @@ export FZF_DEFAULT_OPTS="--bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-
 # previewにそのブランチのgit logが表示される
 # ctrl-g でこの関数を実行する
 function fzf-git-select-branch() {
-  local branch=`git branch -a | cut -c 3- | fzf --reverse --height=80% --preview 'git log --graph --pretty=format:"<%an - %ai> %s %C(bold blue)%Creset" {} --' --preview-window 'wrap'`
+  local branch=`git branch -a | cut -c 3- | fzf-tmux -p 80% --preview 'git log --graph --pretty=format:"<%an - %cd> %s" --date=format:"%Y-%m-%d %H:%M" {} --' --preview-window 'wrap'`
   BUFFER="${BUFFER}${branch}"
   zle redisplay
 }
@@ -42,8 +42,8 @@ function fzf-find-directory() {
   fzf_path=${fzf_path:s/~/$HOME} # 文字列形式の~は動作しないため絶対パスに変換する
   local selected_path=`\
     find ${fzf_path} | \
-      fzf \
-      --reverse \
+      fzf-tmux \
+      -p 80% \
       --height 80% \
       --preview 'if [[ -d {} ]]; then ls -aF {} ; else cat {}; fi'\
     ` # プレビューでは、ディレクトリならlsを、ファイルならcatをプレビューする。
@@ -60,8 +60,8 @@ bindkey '^f' fzf-find-directory
 function fzf-find-history() {
   local selected_command=`\
     history -n -50 | \
-      fzf \
-      --reverse \
+      fzf-tmux \
+      -p 80% \
       --height 80% \
     ` # プレビューでは、ディレクトリならlsを、ファイルならcatをプレビューする。
   BUFFER="$selected_command" # バッファの更新

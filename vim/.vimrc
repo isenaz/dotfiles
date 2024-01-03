@@ -143,5 +143,7 @@ call plug#begin('~/.vim/plugged')
   nmap <Leader><S-f> :call fzf#vim#ag('', fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), 0)<CR> 
   " gitファイル検索 - :GFilesコマンドでは、ファイルエクスプローラーでエラーになり実行ができないので自作
   nmap <Leader>g :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'git ls-files', 'options': '--multi'})))<CR> 
+  " gitコミット検索（logのl）
+  nmap <Leader>l :Commits!<CR> 
 
 call plug#end()
