@@ -28,3 +28,4 @@
      - `$(brew --prefix)/opt/fzf/install`で得られるショートカットキー機能やcompletion機能はあまり使わないのでしない
    - the_silver_searcher
      - agコマンドをfzf.vimで利用するため
+   - [git-delta](https://github.com/dandavison/delta)
