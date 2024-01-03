@@ -129,4 +129,19 @@ call plug#begin('~/.vim/plugged')
   Plug 'lambdalisue/nerdfont.vim'
   let g:fern#renderer = 'nerdfont'
 
+
+  " ----------
+  " fzf and related plugins - fuzzy search
+  " ----------
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+  Plug 'junegunn/fzf.vim'
+  " ファイル名検索 - :Filesコマンドではgitignoreされているファイルも検索対象になるため、agを利用
+  nmap <Leader>f :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'ag --hidden -g ""', 'options': '--multi'})))<CR> 
+  " 全ファイル検索 - gitignoreされているファイルも含む。:Filesコマンドでは隠しファイルが表示されてないためfindを利用
+  nmap <Leader>af :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'find .', 'options': '--multi'})))<CR> 
+  " 全文検索 - :Ag コマンドではファイル名もヒットしてしまうため、delimiterオプションでファイル名を除くようにする
+  nmap <Leader><S-f> :call fzf#vim#ag('', fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), 0)<CR> 
+  " gitファイル検索 - :GFilesコマンドでは、ファイルエクスプローラーでエラーになり実行ができないので自作
+  nmap <Leader>g :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'git ls-files', 'options': '--multi'})))<CR> 
+
 call plug#end()

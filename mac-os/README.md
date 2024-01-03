@@ -24,3 +24,7 @@
 4. 定番brew install
    `brew deps --installed --tree`を実行することで依存関係を調査し、不要な依存ライブラリを消去できる
    - tmux
+   - fzf
+     - `$(brew --prefix)/opt/fzf/install`で得られるショートカットキー機能やcompletion機能はあまり使わないのでしない
+   - the_silver_searcher
+     - agコマンドをfzf.vimで利用するため
