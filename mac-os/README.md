@@ -25,6 +25,8 @@
 
 4. 定番brew install
    `brew deps --installed --tree`を実行することで依存関係を調査し、不要な依存ライブラリを消去できる
+   - vim
+     - MacOSのデフォルトはバージョンが古いため最新版をインストール
    - tmux
      - .tmux.confで管理
    - fzf

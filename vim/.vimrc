@@ -1,6 +1,10 @@
+
 "--------------------
 " settings for native vim
 "--------------------
+" set vim menu to english
+let $LANG = 'en_US'
+" set encodings
 set encoding=utf8
 set fenc=utf-8
 " colorscheme
