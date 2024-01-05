@@ -9,8 +9,8 @@ fi
 # --------------------
 # alias custom command
 # --------------------
-alias ls='ls -F'
-alias la='ls -la'
+alias ls='ls -GF'
+alias la='ls -laGF'
 # cdをするとlsをしてフォルダ内のファイル一覧を表示
 alias cd='(){cd $1 && ls}'
 # git logをグラフできれいに表示する
