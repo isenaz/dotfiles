@@ -146,7 +146,7 @@ call plug#begin('~/.vim/plugged')
   " 全文検索 - :Ag コマンドではファイル名もヒットしてしまうため、delimiterオプションでファイル名を除くようにする
   nmap <Leader><S-f> :call fzf#vim#ag('', fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), 0)<CR> 
   " gitファイル検索 - :GFilesコマンドでは、ファイルエクスプローラーでエラーになり実行ができないので自作
-  nmap <Leader>g :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'git ls-files', 'options': '--multi'})))<CR> 
+  nmap <Leader>g :call fzf#vim#gitfiles("", fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}))<CR> 
   " gitコミット検索（logのl）
   nmap <Leader>l :Commits!<CR> 
 
