@@ -16,12 +16,12 @@
 
 3. 定番アプリのインストール
    - Google 日本語入力
-   - Karabiner-Elements
    - Raycast
-   - Alacritty
-   - Hemmerspoon
-   - Homebrew
    - Arc Browser
+   - Homebrew
+   - Karabiner-Elements [dotfiles有]
+   - Alacritty [dotfiles有]
+   - Hemmerspoon [dotfiles有]
 
 4. 定番brew install
    `brew deps --installed --tree`を実行することで依存関係を調査し、不要な依存ライブラリを消去できる
@@ -41,3 +41,8 @@
      - zsh package manager
      - インストール後は .zshrc にパスを通す
      - .zshrcで管理
+ 5. その他インストール
+   - [nvm](https://github.com/nvm-sh/nvm)
+    - node version management
+    - brewインストールは非推奨になっているのでマニュアルインストール
+    - zshrcでパス管理
