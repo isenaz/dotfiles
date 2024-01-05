@@ -26,3 +26,6 @@
 
 ## usages
 - [tmux cheat sheet](https://tmuxcheatsheet.com/)
+- prefix z -> ペインをズーム表示
+- prefix p -> ポップアップウィンドウ
+- C-n/C-p -> ウィンドウ移動
