@@ -1,0 +1,63 @@
+# --------------------
+# formulae
+# --------------------
+# Command - vim
+# [description]
+# MacOSのデフォルトはバージョンが古いので最新版をインストール
+brew "vim"
+
+# Command - fzf
+# [description]
+# ファジー検索に用いる。
+# `$(brew --prefix)/opt/fzf/install`で得られるショートカットキー機能やcompletion機能はあまり使わないのでしない
+# [used at]
+# - zshrc
+# - vim
+#   - fzf
+brew "fzf"
+
+# Command - Ag
+# [description]
+# 全文検索など
+# [used at]
+# - vim
+#   - fzf :Ag command
+brew "the_silver_searcher"
+
+# Command - delta
+# [description]
+# git diffの表示がきれいになる。
+# https://github.com/dandavison/delta
+# [used at]
+# - gitconfig
+brew "git-delta"
+
+
+# Command - zinit
+# [description]
+# zshのパッケージマネージャー
+# [used at]
+# - zshrc
+brew "zinit"
+
+# その他便利ツール。
+# [used at]
+# no dependency
+brew "tmux"
+brew "tree"
+brew "htop"
+
+# --------------------
+# Fonts - install fonts through brew
+# --------------------
+tap "homebrew/cask-fonts"
+
+# Font - Nerd Font
+# [description]
+# 豊富なアイコンを含むフォント。
+# 高度なアイコン表示で使われる。
+# [used at]
+# - Alacritty
+# - vim
+#   - fern
+cask "font-hack-nerd-font"

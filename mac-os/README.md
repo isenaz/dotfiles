@@ -2,7 +2,7 @@
 
 ## 初期セットアップ
 
-1. キーボードショートカットのカスタマイズ
+### 1. キーボードショートカットのカスタマイズ
    - キーボード
      - 「次のウィンドウを操作対象にする」 -> ctrl + space
    - 入力ソース
@@ -11,40 +11,38 @@
    - アプリのショートカット
      - 「Finder.app」 -> 「ダウンロード」 -> cmd + shift + L
 
-2. CLIでのみ設定可能な項目の設定
-   - `sh init.sh` を実行し、再起動で反映させる
+### 2. CLIでのみ設定可能な項目の設定
+   - `sh init.sh` を実行し、PC再起動で反映させる
 
-3. 定番アプリのインストール
+### 3. 手動インストールする必要があるものをインストール
+- 各HPからGUIでdmgやpkgをDLしてインストール（定番のみ抜粋）
    - Google 日本語入力
    - Raycast
    - Arc Browser
-   - Homebrew
+   - xcode command line tool
+     - AppStoreからXCodeをインストールするか、 `git -v` などと実行するとCLIツールだけがインストールされる
    - Karabiner-Elements [dotfiles有]
    - Alacritty [dotfiles有]
    - Hemmerspoon [dotfiles有]
-
-4. 定番brew install
-   `brew deps --installed --tree`を実行することで依存関係を調査し、不要な依存ライブラリを消去できる
-   - vim
-     - MacOSのデフォルトはバージョンが古いため最新版をインストール
-   - tmux
-     - .tmux.confで管理
-   - fzf
-     - `$(brew --prefix)/opt/fzf/install`で得られるショートカットキー機能やcompletion機能はあまり使わないのでしない
-     - .zshrc, .vimrc で管理
-   - the_silver_searcher
-     - agコマンドをfzf.vimで利用するため
-     - fzf.vim内で利用（個人カスタマイズはなし）
-   - [git-delta](https://github.com/dandavison/delta)
-     - .gitconfigで管理
-   - tree
-   - htop
-   - zinit
-     - zsh package manager
-     - インストール後は .zshrc にパスを通す
-     - .zshrcで管理
- 5. その他インストール
+- スクリプトを実行するなどしてマニュアルインストール
+   - Homebrew [dotfiles有]
    - [nvm](https://github.com/nvm-sh/nvm)
-    - node version management
-    - brewインストールは非推奨になっているのでマニュアルインストール
-    - zshrcでパス管理
+        - node version management
+        - brewインストールは非推奨になっているのでマニュアルインストール
+        - zshrcでパス管理
+
+### 各種dotfilesの反映
+
+各種dotfilesのフォルダ内のREADMEにしたがってdotfilesを反映/初期セットアップしていく。
+
+依存関係があるので以下の順番が良い。
+
+1. hammerspoon （順不同）
+1. karabiner-elements （順不同）
+1. homebrew
+2. alacritty
+3. git
+4. tmux
+5. zsh
+6. powerlevel10k
+7. vim

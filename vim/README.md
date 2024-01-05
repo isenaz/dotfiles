@@ -2,8 +2,8 @@
 
 ## Pre-requisites
 
-* Homebrew
-  * vim-plugのインストールで利用するため
+* Homebrewのインストールと `brew install vim` の実施
+  * vimのバージョンアップ、vim-plugのインストールで利用するため
 * fzf
   * fzf.vimで利用するため
 * the_silver_searcher(agコマンド)
