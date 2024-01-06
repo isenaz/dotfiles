@@ -86,6 +86,16 @@ runtime macros/matchit.vim
 call plug#begin('~/.vim/plugged')
 
   " ----------
+  " linediff - take diff of any selected line areas
+  " ----------
+  Plug 'AndrewRadev/linediff.vim'
+
+  " ----------
+  " markdown-preview - live preview markdown files with browser
+  " ----------
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+  " ----------
   " nerdcommenter - set comments in file
   " ----------
   Plug 'preservim/nerdcommenter'
@@ -96,7 +106,7 @@ call plug#begin('~/.vim/plugged')
   " ----------
   " vim-fugitive - use git functions in vim
   " ----------
-  Plug 'tpope/vim-fugitive' 
+  Plug 'tpope/vim-fugitive'
 
   " ----------
   " fern and related plugins - file explorer in vim
@@ -125,7 +135,7 @@ call plug#begin('~/.vim/plugged')
     autocmd FileType fern call s:fern_settings()
   augroup END
 
-  " show git status in files in fern 
+  " show git status in files in fern
   Plug 'lambdalisue/fern-git-status.vim'
 
   " show file type icons in fern
@@ -144,62 +154,63 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
   Plug 'junegunn/fzf.vim'
   " ファイル名検索 - :Filesコマンドではgitignoreされているファイルも検索対象になるため、agを利用
-  nmap <Leader>f :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'ag --hidden -g ""', 'options': '--multi'})))<CR> 
+  nmap <Leader>f :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'ag --hidden -g ""', 'options': '--multi'})))<CR>
   " 全ファイル検索 - gitignoreされているファイルも含む。:Filesコマンドでは隠しファイルが表示されてないためfindを利用
-  nmap <Leader>af :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'find .', 'options': '--multi'})))<CR> 
+  nmap <Leader>af :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'find .', 'options': '--multi'})))<CR>
   " 全文検索 - :Ag コマンドではファイル名もヒットしてしまうため、delimiterオプションでファイル名を除くようにする
-  nmap <Leader><S-f> :call fzf#vim#ag('', fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), 0)<CR> 
+  nmap <Leader><S-f> :call fzf#vim#ag('', fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), 0)<CR>
   " gitファイル検索 - :GFilesコマンドでは、ファイルエクスプローラーでエラーになり実行ができないので自作
-  nmap <Leader>g :call fzf#vim#gitfiles("", fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}))<CR> 
+  nmap <Leader>g :call fzf#vim#gitfiles("", fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}))<CR>
   " gitコミット検索（logのl）
-  nmap <Leader>l :Commits!<CR> 
+  nmap <Leader>l :Commits!<CR>
 
-	" ----------
-	" coc
-	" ----------
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	" install coc extensions
-	let g:coc_global_extensions = ['coc-json', 'coc-snippets', 'coc-eslint', 'coc-yaml', 'coc-tsserver', 'coc-pyright', 'coc-prettier']
+  " ----------
+  " coc
+  " ----------
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " install coc extensions
+  let g:coc_global_extensions = ['coc-json', 'coc-snippets', 'coc-eslint', 'coc-yaml', 'coc-tsserver', 'coc-pyright', 'coc-prettier']
 
-	" Remap keys for gotos
-	nmap <silent> gd :call CocAction("jumpDefinition", v:false)<CR>
-	nmap <silent> gy <Plug>(coc-type-definition)
-	nmap <silent> gi <Plug>(coc-implementation)
-	nmap <silent> gr <Plug>(coc-references)
+  " Remap keys for gotos
+  nmap <silent> gd :call CocAction("jumpDefinition", v:false)<CR>
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
 
-	" Use K to show documentation in preview window
-	nnoremap <silent> K :call <SID>show_documentation()<CR>
-	function! s:show_documentation()
-		if (index(['vim','help'], &filetype) >= 0)
-			execute 'h '.expand('<cword>')
-		else
-			call CocAction('doHover')
-		endif
-	endfunction
+  " Use K to show documentation in preview window
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
 
-	" Use <c-@> to trigger completion.
-	inoremap <silent><expr> <c-@> coc#refresh()
+  " Use <c-@> to trigger completion.
+  inoremap <silent><expr> <c-@> coc#refresh()
 
 
-	" Use [g and ]g to navigate diagnostics
-	nmap <silent> [g <Plug>(coc-diagnostic-prev)
-	nmap <silent> ]g <Plug>(coc-diagnostic-next)
+  " Use [g and ]g to navigate diagnostics
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-	" Highlight symbol under cursor on CursorHold
-	autocmd CursorHold * silent call CocActionAsync('highlight')
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
 
-	" Add status line support, for integration with other plugin, checkout :h coc-status
-	set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+  " Add status line support, for integration with other plugin, checkout :h coc-status
+  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-	" scroll documentation with <C-f> / <C-b>
-	if has('nvim-0.4.0') || has('patch-8.2.0750')
-		nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-		nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-		inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-		inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-		vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-		vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-	endif
+  " scroll documentation with <C-f> / <C-b>
+  if has('nvim-0.4.0') || has('patch-8.2.0750')
+    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  endif
+
   " ----------
   " vim-airline - customize visual of status line
   " ----------
