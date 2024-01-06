@@ -1,0 +1,42 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "graphql",
+    "elixir",
+    "eelixir",
+    "yml",
+    "python"
+  ],
+  "eslint.validate": [
+    "markdown",
+    "mdx",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "mdx"
+  ],
+  "eslint.autoFixOnSave": true,
+  "eslint.options": {
+    "extensions": ["mdx"]
+  },
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.lintOnSave": true,
+  "python.formatting.provider": "black",
+  "yaml.format.enable": true
+}
