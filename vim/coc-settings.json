@@ -1,17 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "markdown",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "graphql",
-    "elixir",
-    "eelixir",
-    "yml",
-    "python"
-  ],
+  "coc.preferences.formatOnSave": true,
   "eslint.validate": [
     "markdown",
     "mdx",
