@@ -19,6 +19,11 @@ Vim とプラグインの使い方
 
 - :terminal
   - vim 内で terminal モードを開始
+- colorschemes
+  - [サイト](https://vimcolorschemes.com/)から良いのがあったら vim-plug にインストールして利用
+- vimdiff
+  - do/dp(obtain/put) で diff 間の反映ができる
+- [insert モードでのキーバインディング](https://qiita.com/34ro/items/6163f595785ae99a632a)
 
 ### vim-plug
 
