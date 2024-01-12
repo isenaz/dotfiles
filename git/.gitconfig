@@ -2,11 +2,12 @@
   # emailなどgit管理しない情報はlocalにて
   path = ~/.gitconfig.local
 
-# settings for git-delta
 [core]
+  # settings for git-delta
   pager = delta
 
 [interactive]
+  # settings for git-delta
   diffFilter = delta --color-only
 
 [delta]
@@ -16,7 +17,12 @@
   side-by-side = true
 
 [merge]
+  # settings for git-delta
   conflictstyle = diff3
 
 [diff]
+  # settings for git-delta
   colorMoved = default
+
+[push]
+	default = current
