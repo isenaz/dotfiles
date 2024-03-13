@@ -24,7 +24,7 @@ alias cd='(){cd $1 && ls}'
 # git logをグラフできれいに表示する
 alias gl="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # tmuxペインパターン
-alias ide='tmux split-window -h -p 15 && tmux split-window -v -p 33'
+alias ide='tmux split-window -h -l 15% && tmux split-window -v -l 33%'
 
 # --------------------
 # other native zsh settings
