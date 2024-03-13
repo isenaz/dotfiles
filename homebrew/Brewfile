@@ -46,6 +46,7 @@ brew "zinit"
 brew "tmux"
 brew "tree"
 brew "htop"
+brew "libpq"
 
 # --------------------
 # Fonts - install fonts through brew
