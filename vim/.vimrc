@@ -230,6 +230,11 @@ call plug#begin('~/.vim/plugged')
   let g:airline_symbols.maxlinenr = '☰ '
   let g:airline_symbols.dirty='⚡'
 
+  let g:airline_section_b = ''
+  " let g:airline_section_c = '%t'
+  let g:airline_section_x = ''
+  let g:airline_section_y = ''
+
   " ----------
   "  colorschemes
   " ----------
