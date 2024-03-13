@@ -68,3 +68,8 @@ Vim とプラグインの使い方
 
 - 範囲選択 →`:Linediff`→ 比較先を範囲選択 →`:Linediff`をすると、新しいタブに２つの選択領域の diff が表示される
 - diff の中で変更をし、保存をすると元ファイルに反映される。保存しなければ元ファイルは何も変わらない
+
+### markdown-preview
+
+- `:MarkdownPreview` でプレビュー開始
+- `:MarkdownPreviewStop` でプレビュー停止
