@@ -24,6 +24,8 @@ alias ide='tmux split-window -h -p 15 && tmux split-window -v -p 33'
 # disable "ctrl+D to close terminal"
 set -o ignoreeof
 
+setopt share_history
+
 # 補完機能
 # サブコマンドやファイルの候補を出す
 # また、上下矢印で選択肢を移動して選択できる
@@ -146,4 +148,5 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # zsh-syntax-highlighting - コマンドをシンタックスハイライトしてくれる
 # must be at the end of zshrc (after all widgets are configured)
-zinit light zsh-users/zsh-syntax-highlighting 
+zinit light zsh-users/zsh-syntax-highlighting
+
