@@ -7,6 +7,12 @@ fi
 
  export PATH="/opt/homebrew/Cellar/libpq/16.2_1/bin/:$PATH"
 
+# --------------------
+# alias custom command
+# --------------------
+export tf=~/tgk/takumi_force/dev/takumi-force-app
+export tfc=$tf/client
+export tfs=$tf/server
 
 # --------------------
 # alias custom command
