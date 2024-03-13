@@ -239,8 +239,32 @@ call plug#begin('~/.vim/plugged')
   "  colorschemes
   " ----------
   Plug 'arcticicestudio/nord-vim'
+  " diffを見やすくする
+  let g:nord_uniform_diff_background = 1
+  augroup nord-theme-overrides
+    autocmd!
+    " 未使用の変数の色をグレーに変更（元は白で分かりづらい）
+    autocmd ColorScheme nord highlight CocFadeOut cterm=underline gui=underline guifg=#808080
+    " コメントの色を見やすく変更
+    autocmd ColorScheme nord highlight Comment  guifg=#808080
+  augroup END
+
   Plug 'cocopon/iceberg.vim'
-  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+  " あまり良くなかった
+  " Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+  " Plug 'sainnhe/everforest'
+  " Plug 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
+  " Plug 'haishanh/night-owl.vim'
+  " Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+  " Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+  " Plug 'joshdick/onedark.vim'
+  " Plug 'kristijanhusak/vim-hybrid-material'
+  " Plug 'Rigellute/rigel'
+  " Plug 'arzg/vim-colors-xcode'
+
+  " :Inspecthiでhighlightカラーを教えてくれる
+  Plug 'cocopon/inspecthi.vim'
+  
 
   " ----------
   " might use later
