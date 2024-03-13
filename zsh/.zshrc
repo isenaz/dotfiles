@@ -114,6 +114,7 @@ function fzf-find-history() {
       fzf-tmux \
       -p 80% \
       --height 80% \
+      --tac \
     ` # プレビューでは、ディレクトリならlsを、ファイルならcatをプレビューする。
   BUFFER="$selected_command" # バッファの更新
   CURSOR=$#BUFFER # バッファの末尾にカーソルを配置
