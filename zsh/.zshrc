@@ -5,7 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
- export PATH="/opt/homebrew/Cellar/libpq/16.2_1/bin/:$PATH"
+# path for brew
+export PATH="/opt/homebrew/Cellar/libpq/16.2_1/bin/:$PATH"
+# path for poetry
+export PATH="/Users/isase/.local/bin:$PATH"
 
 # --------------------
 # alias custom command

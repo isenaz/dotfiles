@@ -33,6 +33,9 @@
     - node version management
     - brew インストールは非推奨になっているのでマニュアルインストール
     - zshrc でパス管理
+  - [poetry](https://python-poetry.org/)
+    - python version management / virtual environment
+    - zshrc でパス管理
 
 ### 各種 dotfiles の反映
 
