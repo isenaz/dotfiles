@@ -157,8 +157,9 @@ call plug#begin('~/.vim/plugged')
   nmap <Leader>f :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'ag --hidden -g ""', 'options': '--multi'})))<CR>
   " 全ファイル検索 - gitignoreされているファイルも含む。:Filesコマンドでは隠しファイルが表示されてないためfindを利用
   nmap <Leader>af :call fzf#run(fzf#vim#with_preview(fzf#wrap({'source': 'find .', 'options': '--multi'})))<CR>
-  " 全文検索 - :Ag コマンドではファイル名もヒットしてしまうため、delimiterオプションでファイル名を除くようにする
-  nmap <Leader><S-f> :call fzf#vim#ag('', fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), 0)<CR>
+  " 全文検索 - 隠しファイルも表示し、.gitディレクトリは無視する構成
+  nmap <Leader><S-f> :call fzf#vim#ag('', fzf#vim#with_preview({'source': 'ag --hidden --ignore-dir .git .', 'options': '--multi'}), 0)<CR>
+  " ファイル名を検索から除外する場合） nmap <Leader><S-f> :call fzf#vim#ag('', fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), 0)<CR>
   " gitファイル検索 - :GFilesコマンドでは、ファイルエクスプローラーでエラーになり実行ができないので自作
   nmap <Leader>g :call fzf#vim#gitfiles("", fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}))<CR>
   " gitコミット検索（logのl）
