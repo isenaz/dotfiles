@@ -118,6 +118,195 @@
       ]
     },
     {
+      "description": "英数+f/gを押したときに、マウスクリックを送信する",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_eisuu",
+            "modifiers": {
+              "mandatory": [],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "my_modifier_1",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "my_modifier_1",
+                "value": 0
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "my_modifier_1",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "mandatory": [],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "pointing_button": "button2"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "my_modifier_1",
+              "value": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "英数+r+マウス動作をスクロールへ変換",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_eisuu",
+            "modifiers": {
+              "mandatory": [],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "my_modifier_1",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "my_modifier_1",
+                "value": 0
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "mandatory": [],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "enable_mouse_motion_to_scroll",
+                "value": true,
+                "key_up_value": false
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "my_modifier_1",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "mouse_motion_to_scroll",
+          "from": {
+            "modifiers": { "optional": ["any"] }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "enable_mouse_motion_to_scroll",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Change button3 + mouse movement to scroll",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button3",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "enable_mouse_motion_to_scroll",
+                "value": true,
+                "key_up_value": false
+              }
+            }
+          ]
+        },
+        {
+          "type": "mouse_motion_to_scroll",
+          "from": {
+            "modifiers": { "optional": ["any"] }
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "enable_mouse_motion_to_scroll",
+              "value": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Ctrl+[を押したときに、escキーを送信する",
       "manipulators": [
         {
