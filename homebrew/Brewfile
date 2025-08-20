@@ -5,6 +5,7 @@
 # [description]
 # MacOSのデフォルトはバージョンが古いので最新版をインストール
 brew "vim"
+brew "neovim"
 
 # Command - fzf
 # [description]
