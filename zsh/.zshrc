@@ -12,7 +12,7 @@ if [ -f "$DOTFILES_PATH/zsh/.env" ]; then
 fi
 
 # path for brew
-export PATH="/opt/homebrew/Cellar/libpq/16.2_1/bin/:$PATH"
+export PATH="/opt/homebrew/Cellar/libpq/17.6/bin/:$PATH"
 # path for poetry
 export PATH="/Users/isase/.local/bin:$PATH"
 
