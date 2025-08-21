@@ -33,7 +33,10 @@ alias cd='(){cd $1 && ls}'
 # git logをグラフできれいに表示する
 alias gl="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # tmuxペインパターン
-alias ide='tmux split-window -h -l 15% && tmux split-window -v -l 33%'
+alias ide='tmux split-window -h -l 25% && tmux split-window -v -l 66% && tmux select-pane -L'
+# vim to nvim
+alias vim='nvim'
+
 
 alias dev-ssm-w=$AWS_START_SSM_SESSION_COMMAND_DEV_WRITABLE
 alias prd-ssm-w=$AWS_START_SSM_SESSION_COMMAND_PRD_WRITABLE
