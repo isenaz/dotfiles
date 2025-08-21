@@ -5,6 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+DOTFILES_PATH=~/.dotfiles/
+# Load private environment variables if the file exists
+if [ -f "$DOTFILES_PATH/zsh/.env" ]; then
+  source "$DOTFILES_PATH/zsh/.env"
+fi
+
 # path for brew
 export PATH="/opt/homebrew/Cellar/libpq/16.2_1/bin/:$PATH"
 # path for poetry
@@ -28,6 +34,10 @@ alias cd='(){cd $1 && ls}'
 alias gl="git log --graph --branches --remotes --tags --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit"
 # tmuxペインパターン
 alias ide='tmux split-window -h -l 15% && tmux split-window -v -l 33%'
+
+alias dev-ssm-w=$AWS_START_SSM_SESSION_COMMAND_DEV_WRITABLE
+alias prd-ssm-w=$AWS_START_SSM_SESSION_COMMAND_PRD_WRITABLE
+alias prd-ssm-r=$AWS_START_SSM_SESSION_COMMAND_PRD_READONLY
 
 # --------------------
 # other native zsh settings
