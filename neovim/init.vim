@@ -86,6 +86,17 @@ set nocompatible
 filetype plugin on
 runtime macros/matchit.vim
 
+" ターミナルがフォーカスされているか否かで背景色を変える
+" tmuxでフォーカスのあたっているペインをわかりやすくするためで、tmuxと色を揃えている
+augroup DynamicBG
+  autocmd!
+  " アクティブ時の背景色→（例：黒）
+  autocmd FocusGained * highlight Normal ctermbg=234 guibg=#2E3440 
+  " 非アクティブ時の背景色→（例：グレー）
+  autocmd FocusLost   * highlight Normal ctermbg=236 guibg=#3b424f
+augroup END
+
+
 "--------------------
 " plugins
 "--------------------
