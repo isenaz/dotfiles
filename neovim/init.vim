@@ -260,6 +260,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'coder/claudecode.nvim'
   " ClaudeCode内から他のウィンドウに <leader>c h/j/k/l で移動できるようにする
   tmap <leader>c <C-\><C-n><C-w>
+  " ファイルパス 'path/to/fle' 形式でをクリップボードコピーする
+  nmap <leader>y :let @+ = expand('%')<cr>
+  " ファイルパスと選択行を 'file/to/path#L1-10' 形式でクリップボードコピーする
+  vnoremap <leader>y :<C-u>let @+ = expand('%') . '#L' . line("'<") . '-' . line("'>")<CR>
+  " Vim外のClaude Codeがファイルを変更したとき、ウィンドウのフォーカス時に変更をリロードする
+  " au FocusGained,BufEnter,WinEnter,FileChangedShell * :silent! checktime
+
+  " Vim外であった変更と、Vimで行った変更が競合したとき、それぞれのdiffを取る。
+  " 左ペインが保存済ファイルで、右ペインがVimで編集中のバッファ。
+  " 左の変更を見ながら右を最新にし、右を保存する。
+  command! Diff vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis | wincmd p | diffthis
 
   " ----------
   "  colorschemes
