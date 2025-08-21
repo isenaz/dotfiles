@@ -26,6 +26,12 @@ set laststatus=2
 
 " 行番号を表示
 set number relativenumber
+" フォーカスのあたっているペインは相対、それ以外は絶対
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " カーソル行を強調
 set cursorline
